@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html">
+    <head>
+        <title>Home</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background-color: #f4f4f4;
+                padding: 50px;
+            }
+
+            h1 {
+                color: #333;
+                margin-bottom: 30px;
+            }
+
+            .button-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .styled-button {
+                background-color: #FF4C4C; /* Rouge */
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s, transform 0.2s;
+                width: 200px;
+            }
+
+            .styled-button:hover {
+                background-color: #e03d3d;
+                transform: scale(1.05);
+            }
+
+            .styled-button:active {
+                background-color: #b02a2a;
+                transform: scale(1);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Bienvenue sur la page d'accueil</h1>
+
+        <h:form>
+            <div class="button-container">
+                <h:commandButton value="Ajouter" action="#{navigationController.ajouter()}" styleClass="styled-button"/>
+                <h:commandButton value="Visiter" action="#{navigationController.visiter()}" styleClass="styled-button"/>
+                <h:commandButton value="À propos" action="#{navigationController.voirApropos()}" styleClass="styled-button"/>
+            </div>
+        </h:form>
+    </body>
+</html>
