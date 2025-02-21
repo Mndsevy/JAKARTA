@@ -4,7 +4,7 @@
       xmlns:h="jakarta.faces.html"
       xmlns:f="jakarta.faces.core">
     <h:head>
-        <title>Ajouter un Lieu</title>
+        <title>Gestion des Lieux</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
             body {
@@ -98,22 +98,47 @@
             tr:hover {
                 background-color: #f1f1f1;
             }
+
+            .action-button {
+                background-color: #0066cc;
+                color: white;
+                border: none;
+                padding: 8px 15px;
+                font-size: 14px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s, transform 0.2s;
+            }
+
+            .action-button:hover {
+                background-color: #004d99;
+                transform: scale(1.05);
+            }
+
+            .delete-button {
+                background-color: #cc0000;
+                margin-left: 5px;
+            }
+
+            .delete-button:hover {
+                background-color: #990000;
+            }
         </style>
     </h:head>
     <h:body>
         <div class="container">
-            <h1>Ajouter un Lieu</h1>
+            <h1>Gestion des Lieux</h1>
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel for="nom" value="Nom:"/>
                     <h:inputText id="nom" value="#{lieuController.lieu.nom}" required="true"/>
-                    
+
                     <h:outputLabel for="description" value="Description:"/>
                     <h:inputText id="description" value="#{lieuController.lieu.description}" required="true"/>
-                    
+
                     <h:outputLabel for="latitude" value="Latitude:"/>
                     <h:inputText id="latitude" value="#{lieuController.lieu.latitude}" required="true"/>
-                    
+
                     <h:outputLabel for="longitude" value="Longitude:"/>
                     <h:inputText id="longitude" value="#{lieuController.lieu.longitude}" required="true"/>
                 </h:panelGrid>
@@ -136,6 +161,13 @@
                 <h:column>
                     <f:facet name="header">Longitude</f:facet>
                     #{lieu.longitude}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Actions</f:facet>
+                    <h:form>
+                        <h:commandButton value="Modifier" action="#{lieuController.modifierLieu(lieu)}" styleClass="action-button"/>
+                        <h:commandButton value="Supprimer" action="#{lieuController.supprimerLieu(lieu)}" styleClass="action-button delete-button"/>
+                    </h:form>
                 </h:column>
             </h:dataTable>
         </div>
