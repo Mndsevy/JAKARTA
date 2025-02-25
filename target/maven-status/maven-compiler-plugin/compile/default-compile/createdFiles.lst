@@ -1,5 +1,8 @@
 com\udblml\business\LieuEntrepriseBean.class
+com\udblml\entities\Utilisateur.class
 Lieu.class
+com\udblml\business\UtilisateurEntrepriseBean.class
+beans\UtilisateurBean.class
 com\udblml\business\EJB.class
 com\udblml\entities\Lieu.class
 com\udblml\navigation\JakartaRestConfiguration.class

@@ -4,147 +4,119 @@
       xmlns:h="jakarta.faces.html"
       xmlns:f="jakarta.faces.core">
     <h:head>
-        <title>Gestion des Lieux</title>
+        <title>Ajouter un Lieu</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
             body {
-                font-family: Arial, sans-serif;
-                background-color: #ffdddd;
+                font-family: 'Segoe UI', Arial, sans-serif;
+                text-align: center;
+                background-color: #f8f9fa;
                 padding: 50px;
-                margin: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
             }
 
             .container {
                 background-color: white;
-                padding: 30px;
-                border-radius: 15px;
-                box-shadow: 0px 4px 15px rgba(255, 0, 0, 0.2);
-                width: 60%;
+                padding: 25px;
+                border-radius: 12px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+                display: inline-block;
+                width: 70%; /* Conteneur plus large */
                 text-align: left;
-                border: 2px solid #cc0000;
             }
 
-            h1 {
-                color: #cc0000;
-                text-align: center;
-                margin-bottom: 30px;
-            }
-
-            h:panelGrid {
-                margin-bottom: 20px;
-            }
-
-            h:outputLabel {
-                font-weight: bold;
-                color: #cc0000;
-            }
-
-            h:inputText {
-                width: 100%;
-                padding: 10px;
-                margin-top: 5px;
-                border: 1px solid #cc0000;
-                border-radius: 5px;
-                font-size: 14px;
-                color: #333;
-            }
-
-            .styled-button {
-                background-color: #cc0000;
-                color: white;
-                border: none;
-                padding: 12px 25px;
-                font-size: 16px;
-                margin-top: 20px;
-                cursor: pointer;
-                border-radius: 8px;
-                transition: background-color 0.3s, transform 0.2s;
-                width: 100%;
-            }
-
-            .styled-button:hover {
-                background-color: #990000;
-                transform: scale(1.05);
+            .form-container {
+                margin-bottom: 30px; /* Espace entre le formulaire et le tableau */
             }
 
             table {
                 width: 100%;
                 border-collapse: collapse;
-                margin-top: 30px;
+                margin-top: 25px;
             }
 
             th, td {
-                padding: 12px;
+                border: 1px solid #e0e0e0;
+                padding: 10px;
                 text-align: left;
-                border: 1px solid #cc0000;
-                font-size: 14px;
-                color: #333;
             }
 
             th {
-                background-color: #cc0000;
+                background-color: #6A1B9A; /* Violet foncé */
                 color: white;
-                font-weight: bold;
+                letter-spacing: 0.5px;
             }
 
-            tr:nth-child(even) {
-                background-color: #f9f9f9;
+            .styled-button {
+                background-color: #6A1B9A; /* Violet foncé */
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                font-size: 16px;
+                margin-top: 15px;
+                cursor: pointer;
+                border-radius: 6px;
+                transition: all 0.3s ease;
             }
 
-            tr:hover {
-                background-color: #f1f1f1;
+            .styled-button:hover {
+                background-color: #4A148C; /* Violet plus sombre */
+                transform: translateY(-1px);
             }
 
             .action-button {
-                background-color: #0066cc;
+                background-color: #26A69A; /* Vert/bleu moderne */
                 color: white;
                 border: none;
-                padding: 8px 15px;
-                font-size: 14px;
+                padding: 6px 12px;
                 cursor: pointer;
-                border-radius: 5px;
-                transition: background-color 0.3s, transform 0.2s;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+                margin-right: 8px;
             }
 
             .action-button:hover {
-                background-color: #004d99;
+                background-color: #00796B; /* Vert plus sombre */
                 transform: scale(1.05);
             }
 
             .delete-button {
-                background-color: #cc0000;
-                margin-left: 5px;
+                background-color: #FF5252; /* Rouge vif */
             }
 
             .delete-button:hover {
-                background-color: #990000;
+                background-color: #D32F2F; /* Rouge sombre */
+            }
+
+            .actions-column {
+                text-align: right; /* Alignement des boutons à droite */
             }
         </style>
     </h:head>
     <h:body>
         <div class="container">
-            <h1>Gestion des Lieux</h1>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel for="nom" value="Nom:"/>
-                    <h:inputText id="nom" value="#{lieuController.lieu.nom}" required="true"/>
+            <!-- Formulaire en haut -->
+            <div class="form-container">
+                <h1>Ajouter un Lieu</h1>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel for="nom" value="Nom:"/>
+                        <h:inputText id="nom" value="#{lieuController.lieu.nom}" required="true"/>
 
-                    <h:outputLabel for="description" value="Description:"/>
-                    <h:inputText id="description" value="#{lieuController.lieu.description}" required="true"/>
+                        <h:outputLabel for="description" value="Description:"/>
+                        <h:inputText id="description" value="#{lieuController.lieu.description}" required="true"/>
 
-                    <h:outputLabel for="latitude" value="Latitude:"/>
-                    <h:inputText id="latitude" value="#{lieuController.lieu.latitude}" required="true"/>
+                        <h:outputLabel for="latitude" value="Latitude:"/>
+                        <h:inputText id="latitude" value="#{lieuController.lieu.latitude}" required="true"/>
 
-                    <h:outputLabel for="longitude" value="Longitude:"/>
-                    <h:inputText id="longitude" value="#{lieuController.lieu.longitude}" required="true"/>
-                </h:panelGrid>
-                <h:commandButton value="Ajouter" action="#{lieuController.ajouterLieu()}" styleClass="styled-button"/>
-            </h:form>
+                        <h:outputLabel for="longitude" value="Longitude:"/>
+                        <h:inputText id="longitude" value="#{lieuController.lieu.longitude}" required="true"/>
+                    </h:panelGrid>
+                    <h:commandButton value="Ajouter" action="#{lieuController.ajouterLieu()}" styleClass="styled-button"/>
+                </h:form>
+            </div>
 
+            <!-- Tableau en dessous -->
+            <h2>Liste des Lieux</h2>
             <h:dataTable value="#{lieuController.lieux}" var="lieu" border="1">
                 <h:column>
                     <f:facet name="header">Nom</f:facet>
@@ -162,12 +134,12 @@
                     <f:facet name="header">Longitude</f:facet>
                     #{lieu.longitude}
                 </h:column>
-                <h:column>
+
+                <!-- Colonne d'actions alignée à droite -->
+                <h:column styleClass="actions-column">
                     <f:facet name="header">Actions</f:facet>
-                    <h:form>
-                        <h:commandButton value="Modifier" action="#{lieuController.modifierLieu(lieu)}" styleClass="action-button"/>
-                        <h:commandButton value="Supprimer" action="#{lieuController.supprimerLieu(lieu)}" styleClass="action-button delete-button"/>
-                    </h:form>
+                    <h:commandButton value="Modifier" action="#{lieuController.modifierLieu(lieu)}" styleClass="action-button"/>
+                    <h:commandButton value="Supprimer" action="#{lieuController.supprimerLieu(lieu)}" styleClass="action-button delete-button"/>
                 </h:column>
             </h:dataTable>
         </div>

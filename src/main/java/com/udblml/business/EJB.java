@@ -6,7 +6,7 @@ package com.udblml.business;
 
 /**
  *
- * @author Dell
+ * @author User
  */
 public class EJB {
     

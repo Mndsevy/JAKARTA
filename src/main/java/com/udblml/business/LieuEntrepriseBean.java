@@ -41,3 +41,12 @@ public class LieuEntrepriseBean {
         return em.find(Lieu.class, id);
     }
 }
+
+          
+
+            
+            
+        
+
+    
+    
