@@ -4,7 +4,7 @@
  */
 package beans;
 
-import com.udblml.business.UtilisateurEntrepriseBean;
+import business.UtilisateurEntrepriseBean;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
@@ -35,10 +35,11 @@ public class UtilisateurBean {
     
     @NotBlank(message = "Le mot de passe est obligatoire")
     @Size(min = 8, message = "Le mot de passe doit contenir au moins 8 caractères")
-     @Pattern(
-        regexp = "^(?=.[A-Z])(?=.\\d)(?=.[@$!%?&])[A-Za-z\\d@$!%*?&]{6,}$",
+    @Pattern(
+        regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
         message = "Le mot de passe doit contenir au moins une majuscule, un chiffre et un caractère spécial"
     )
+
     private String password;
     
     @NotBlank(message = "Veuillez confirmer votre mot de passe")
